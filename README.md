@@ -1,7 +1,7 @@
 Spring Boot Quickstart Maven Archetype
 =========================================
 
-[![Build Status](https://github.com/isoftbao/spring-boot-webapp-quickstart-archetype.svg?branch=master)](https://github.com/isoftbao/spring-boot-webapp-quickstart-archetype)
+[![Build Status](https://travis-ci.org/isoftbao/spring-boot-webapp-quickstart-archetype.svg?branch=master)](https://github.com/isoftbao/spring-boot-webapp-quickstart-archetype)
 [![License Status](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/isoftbao/spring-boot-webapp-quickstart-archetype/master/LICENSE)
 
 *Note : This repository is no longer maintained.*
