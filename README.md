@@ -1,8 +1,8 @@
 Spring Boot Quickstart Maven Archetype
 =========================================
 
-[![Build Status](https://travis-ci.org/suzel/spring-boot-quickstart-archetype.svg?branch=master)](https://travis-ci.org/suzel/spring-boot-quickstart-archetype)
-[![License Status](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/suzel/spring-boot-quickstart-archetype/master/LICENSE)
+[![Build Status](https://github.com/isoftbao/spring-boot-webapp-quickstart-archetype.svg?branch=master)](https://github.com/isoftbao/spring-boot-webapp-quickstart-archetype)
+[![License Status](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/isoftbao/spring-boot-webapp-quickstart-archetype/master/LICENSE)
 
 *Note : This repository is no longer maintained.*
 
@@ -16,8 +16,8 @@ Installation
 To install the archetype in your local repository execute following commands:
 
 ```sh
-$ git clone https://github.com/suzel/spring-boot-quickstart-archetype.git
-$ cd spring-boot-quickstart-archetype
+$ git clone https://github.com/isoftbao/spring-boot-webapp-quickstart-archetype.git
+$ cd spring-boot-webapp-quickstart-archetype
 $ mvn clean install
 ```
 
@@ -26,8 +26,8 @@ Create a project
 
 ```sh
 $ mvn archetype:generate \
-     -DarchetypeGroupId=com.github.spring-boot-archetypes \
-     -DarchetypeArtifactId=spring-boot-quickstart \
+     -DarchetypeGroupId=com.isoftbao \
+     -DarchetypeArtifactId=spring-boot-webapp-quickstart-archetype \
      -DarchetypeVersion=1.0.0 \
      -DgroupId=com.company \
      -DartifactId=webapp \
