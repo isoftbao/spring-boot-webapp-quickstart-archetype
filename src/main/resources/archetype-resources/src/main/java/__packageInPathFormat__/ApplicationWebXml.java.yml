@@ -1,0 +1,15 @@
+//:
+- String profile = System.getProperty("spring.profiles.active");
+- return application.profiles(profile).sources(Application.class);
+'@Override': ''
+import:
+- org.slf4j.Logger;
+- org.slf4j.LoggerFactory;
+- org.springframework.boot.builder.SpringApplicationBuilder;
+- org.springframework.boot.context.web.SpringBootServletInitializer;
+package: ${package};
+private: final Logger log = LoggerFactory.getLogger(ApplicationWebXml.class);
+protected: SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+public: class ApplicationWebXml extends SpringBootServletInitializer {
+return: application.sources(Application.class);
+'}': ''

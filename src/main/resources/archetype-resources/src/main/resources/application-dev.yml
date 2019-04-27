@@ -1,0 +1,111 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
+  context-path: /
+
+########### SPRING配置 ###########
+spring:
+  session:
+    store-type: redis
+  jpa:
+    # Specify the DBMS
+    database: MYSQL
+    # Show or not log for each sql query
+    show-sql: true
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, update)
+      ddl-auto: update  
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        generate_statistics: false
+    generate-ddl: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/isoftbaospringboot?characterEncoding=UTF-8&amp;useUnicode=true
+    password: root
+    username: root
+    ###################以下为druid增加的配置###########################
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    pool:
+      max-active: 10
+      max-idle: 10
+      min-idle: 5
+      max-wait: 5000
+  http:
+    multipart:
+      max-file-size: 100MB #文件上传限制
+    encoding:
+      charset: UTF-8
+      enabled: 'true'
+      force: 'true'
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    locale: zh_CN
+    time-zone: GMT+8
+  messages:
+    #指定message的basename，多个以逗号分隔，如果不加包名的话，默认从classpath路径开始，默认: messages
+    basename: i18n/messages
+    encoding: UTF-8
+    #设定加载的资源文件缓存失效时间，-1的话为永不过期，默认为-1
+    cache-seconds: 3600
+  thymeleaf:
+    cache: 'false'
+  freemarker:
+    settings:
+      auto_import: inc/spring.ftl as spring
+    suffix: .ftl # 后缀按自己需求定义
+
+isoftconfig:
+  swagger-open: true #是否开启swagger (true/false)
+  kaptcha-open: false #是否开启登录时验证码 (true/false)
+  file-upload-path:  #文件上传目录(不配置的话为java.io.tmpdir目录)
+  muti-datasource-open: false #是否开启多数据源(true/false)
+  spring-session-open: false #是否开启spring session,如果是多机环境需要开启(true/false)
+  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
+  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+  crm:
+    attachment:
+      # 允许上传的附件文件类型，默认值：.jpg,.png,.gif,.bmp,.jpeg,.zip,.rar
+      allow-file-type: '.csv,.xls,.xlxs,.ppt,.pps,.pot,.dot,.doc,.htm,.html,.pdf,.jpg,.png,.gif,.bmp,.jpeg,.zip,.rar'
+      ########### 附件相关配置 ###########
+      # 附件存储目录，为空默认存储在系统用户目录
+      root-path: /Users/Jenner/DEV/data/app/isoftbao/${artifactId}/upload/
+    system:
+      super-user-id: '1' #设置超级管理员ID，此用户不受权限控制，拥有系统最高权限
+logging:
+  path: /Users/Jenner/DEV/data/app/isoftbao/${artifactId}/logs
+  level:
+    ${package}.modular: DEBUG
+    org.flowable: DEBUG
+########### MtBatis的配置 ###########
+
+#设置输出MyBatis执行的Sql日志
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: ${package}.modular.*.domain
